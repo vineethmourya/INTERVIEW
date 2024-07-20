@@ -1,0 +1,100 @@
+CONTENTS:
+001-HOW TO CHECK INDIVIDUAL STEP CONDITION CODE IN JOB OUTPUT IN SPOOL.
+002-COND PARAMETER IN JCL
+003-HOW TO SET CONDITION CODE/RETURN CODE USING JCL? (USING IDCAMS)
+004-HOW TO SET STEP CONDITION CODE/RETURN CODE USING COBOL?
+005-COMMAND TO DELETE ALL JOBS IN SPOOL AT ONCE(//C  //)
+006
+007
+008
+009
+010
+
+
+//**********************************************HOW TO CHECK INDIVIDUAL STEP CONDITION CODE IN JOB OUTPUT IN SPOOL****************************************************************
+04:17:13  F202201  PGM=IEFBR14 ,CHG=(1,90240  ),CPU=      0MIN 00.00SEC,CC=0000,STEP=001
+04:17:13  F202201  PGM=IEFBR14 ,CHG=(1,90240  ),CPU=      0MIN 00.00SEC,CC=0000,STEP=002
+
+//**********************************************COND PARAMETER IN JCL**************************************************************************************
+UTILITY OF COND IS TO SKIP/BYPASS STEP PROCESSING.  SO IF COND BECOMES TRUE, STEP PROCESSING IS SKIPPED/BYPASSED.
+
+TRUE ->Bypass step
+FALSE->Execute step
+
+1.RC=0.COND=(0,EQ).TRUE.BYPASS
+2.RC=0.COND=(0,NE).FALSE.EXECUTE
+3.RC=0.COND=(0,LT).FALSE.EXECUTE
+4.RC=0.COND=(0,GT).FALSE.EXECUTE
+5.RC=0.COND=(0,LE).TRUE.BYPASS
+6.RC=0.COND=(0,GE).TRUE.BYPASS
+
+SUCCEEDING STEPS SHOULD NOT EXECUTE IF ANY PREVIOUS STEP RC NOT EQUAL TO 0.	COND=(0,NE) IS 0 NE 0? FALSE.
+SUCCEEDING STEPS SHOULD NOT EXECUTE IF ANY PREVIOUS STEP RC GREATER THAN 4.	COND=(4,LT) IS 4 LT 5? TRUE.
+SUCCEEDING STEPS SHOULD NOT EXECUTE IF ANY PREVIOUS STEP RC GREATER THAN 8.	COND=(8,LT) IS 8 LT 9? TRUE.
+SUCCEEDING STEPS SHOULD NOT EXECUTE IF ANY PREVIOUS STEP RC GREATER THAN 16.COND=(16,LT) IS 16 LT 17? TRUE.
+
+Step1
+step2,cond=(0,EQ) =>(0= RC0)=>TRUE -> Bypasses step2
+F202201  PGM=IEFBR14 ,CHG=(1,90240  ),CPU=      0MIN 00.00SEC,CC=0000,STEP=001
+F202201  PGM=IEFBR14 ,CHG=(1,90240  ),CPU=       MIN 00.00SEC,CC=XXXX,STEP=002
+
+step2,cond=(0,NE) =>(0<>RC0)=>FALSE-> Executes step2
+F202201  PGM=IEFBR14 ,CHG=(1,90240  ),CPU=      0MIN 00.00SEC,CC=0000,STEP=001
+F202201  PGM=IEFBR14 ,CHG=(1,90240  ),CPU=      0MIN 00.00SEC,CC=0000,STEP=002
+
+IBM MANUAL BEGIN
+Operator	Meaning
+GT			Greater than
+GE			Greater than or equal to
+EQ			Equal to
+LT			Less than
+LE			Less than or equal to
+NE			Not equal to
+
+//jobname JOB acct,progname,COND=(code,operator)
+//jobname JOB acct,progname,COND=((code,operator),(code,operator))
+
+//stepname EXEC PGM=x,COND=(code,operator)
+//stepname EXEC PGM=x,COND=(code,operator,stepname)
+//stepname EXEC PROC=x,COND=((code,operator,stepname.procstepname))
+
+//stepname EXEC PGM=x,COND=EVEN
+//stepname EXEC PGM=x,COND=ONLY
+//stepname EXEC PGM=x,COND=((code,operator),EVEN)
+//stepname EXEC PGM=x,COND=((code,operator,stepname),ONLY) 
+
+EXAMPLE 1
+//J1  JOB  ,'LEE BURKET',COND=((10,GT),(20,LT)) 
+
+This example asks ‘Is 10 greater than the return code or is 20 less than the return code?’. 
+If either is true, the system skips all remaining job steps. If both are false after each step executes, 
+the system executes all job steps.
+
+For example, if a step returns a code of 12, neither test is satisfied. The next step is executed. 
+However, if a step returns a code of 25, the first test is false, but the second test is satisfied: 20 is less than 25. 
+The system bypasses all remaining job steps.
+
+IBM MANUAL END
+//**********************************************HOW TO SET STEP CONDITION CODE/RETURN CODE USING JCL? (USING IDCAMS)****************************************************************
+//IF110X3C JOB (1,90240,NPD-271),FCSS,
+//         MSGCLASS=H,NOTIFY=&SYSUID  
+//STEP1    EXEC PGM=IDCAMS,COND=(0,NE)
+//SYSPRINT DD SYSOUT=*                
+//SYSIN    DD *                       
+   SET LASTCC = 015                   
+/*                                    
+//STEP2    EXEC PGM=IDCAMS,COND=(0,NE)
+//SYSPRINT DD SYSOUT=*                
+//SYSIN    DD *                       
+   SET MAXCC = 004                    
+/*                                    
+
+PROGRAM OUTPUT=15
+//**********************************************HOW TO SET STEP CONDITION CODE/RETURN CODE USING COBOL? ****************************************************************
+//**********************************************COMMAND TO DELETE ALL JOBS IN SPOOL AT ONCE****************************************************************
+USE BELOW 2 COMMANDS ON FIRST AND LAST JOB: (GIVE ';;;;;;;;;;;;;;' IN COMMAND LINE AND PRESS ENTER TO ACCEPT DELETE REQUEST)
+//C
+
+
+//
+
