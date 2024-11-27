@@ -1,0 +1,39 @@
+DATE - 27NOVEMBER2024
+URL - https://www.google.com/about/careers/applications/jobs/results/79164423981146822-mainframe-modernization-consultant-google-cloud?q=COBOL
+
+JOB DESCRIPTION:
+Mainframe Modernization Consultant, Google Cloud
+corporate_fare
+Google
+place
+Pune, Maharashtra, India
+; Bengaluru, Karnataka, India
+info_outline
+XInfo Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Pune, Maharashtra, India; Bengaluru, Karnataka, India.
+Note: By applying to this position you will have an opportunity to share your preferred working location from the following: Pune, Maharashtra, India; Bengaluru, Karnataka, India.
+
+Minimum qualifications:
+Bachelor's degree in Computer Science, a related technical field, or equivalent practical experience in cloud architecture engineering.
+4 years of experience in IT and mainframe technologies like COBOL, PL/I, RPG, Assembler, JCL, VSAM files, CICS, DB2, IMS, etc.
+4 years of experience in mainframe modernization.
+Experience with mainframe migration and modernization tools like Micro Focus, Astadia, mLogica, etc. along with experience in data migrations from mainframe to modern databases.
+
+Preferred qualifications:
+4 years of experience in Java development with the Spring Boot framework.
+Experience leading and delivering multiple mainframe modernization projects using various tools and techniques (e.g., Micro Focus, mLogica, Astadia, Java, etc.).
+Experience leading the scoping of mainframe modernization projects, proposal development, writing Statement of Work, etc.
+Experience with DevOps practices, CI/CD pipelines, containerization, and cloud platforms.
+Experience with standard IT security practices (e.g., encryption, certificates, key management).
+Experience with Cloud products such as Google Cloud Platform or other similar technologies.
+About the job
+As a Cloud Mainframe Modernization Consultant, you will guide customers on how to configure, migrate, and deploy their mainframe systems on Google Cloud. You may have to travel to customer sites to deploy solutions and deliver workshops to educate and empower customers. Additionally, you will work with product teams to deliver excellence in Google Cloud products and features.
+
+In this role, you are the Google Architect working with Google's most strategic Cloud customers. Together with the team, you will support customer implementation of Google Cloud products through: architecture guidance, best practices, data migration, capacity planning, implementation, troubleshooting, monitoring, and much more.
+
+Google Cloud accelerates every organization’s ability to digitally transform its business and industry. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology, and tools that help developers build more sustainably. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.
+Responsibilities
+Be a trusted technical advisor to customers and solve complex Cloud Mainframe migration challenges.
+Create and deliver best practices recommendations, tutorials, blog articles, sample code, and technical presentations adapting to different levels of key business and technical stakeholders.
+Work with various modernization tools and products to modernize mainframe.
+Help customers in designing the architecture and deliver migration and total operating cost estimation.
+Lead delivery of complex mainframe migration projects, providing technical governance and leading teams including doing team work.
