@@ -1,3 +1,14 @@
+********************************************************************************
+DATE-12DECEMBER2024
+INTERVIEW:TCS GANGOTHRI MAINFRAME CARDLINK APPLICATION (MALAYSIA BANK)
+THINGS TO IMPROVE ON BASED ON INTERVIEW FEEDBACK
+********************************************************************************
+FILE PROCESSING IN COBOL
+ALL FILE STATUS CODES.  WHAT IS 20 
+FILE MODES - EXTEND, IO
+READ AND NEXT READ IN COBOL
+********************************************************************************
+
 HCL-8+YEARS EXPERIENCE INTERVIEW
 1 - CURSORS - FOR UPDATE OF
 2 - CURSORS - WITH HOLD
@@ -17,3 +28,4 @@ CICS
 
 DATE-28-NOV-2024
 IMS PSB
+
